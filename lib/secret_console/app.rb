@@ -6,6 +6,7 @@ module SecretConsole
     DELIMITER = '.'
 
     set :views, File.expand_path('../views', __FILE__)
+    enable :method_override
 
     Record = Struct.new(:path, :value)
 
@@ -55,6 +56,14 @@ module SecretConsole
 
       # TODO Set flash message
       redirect to(request.path_info)
+    end
+
+    delete '/*' do
+      path = params['splat'].first.gsub("/", DELIMITER)
+
+      CredStash.delete(path)
+
+      redirect to(request.path_info.split("/")[0..-2].join("/"))
     end
   end
 end
