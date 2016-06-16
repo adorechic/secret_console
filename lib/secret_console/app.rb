@@ -20,7 +20,7 @@ module SecretConsole
       end
 
       unless path == ""
-        keys = keys.grep(/\A#{path}#{DELIMITER}*/)
+        keys = keys.grep(Regexp.new("\\A#{path}\\#{DELIMITER}#{DELIMITER}*"))
       end
 
       if keys.size == 0
