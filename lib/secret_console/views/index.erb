@@ -1,27 +1,30 @@
 <html>
   <body>
-    <h1>Values</h1>
-    <table>
-      <tr>
-        <th>Key</th>
-        <th>Value</th>
-      </tr>
-      <% values.each do |key, value| %>
+    <% if values.size > 0 %>
+      <h1>Values</h1>
+      <table>
         <tr>
-          <td><%= key %></td>
-          <td><%= value %></td>
+          <th>Key</th>
+          <th>Value</th>
         </tr>
-      <% end %>
-    </table>
+        <% values.each do |key, value| %>
+          <tr>
+            <td><%= key %></td>
+            <td><%= value %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
 
-
-    <h1>Children</h1>
-    <ul>
-      <% links.each do |key, value| %>
-        <li>
-          <a href="<%= value %>"><%= key %></a>
-        </li>
-      <% end %>
-    </ul>
+    <% if links.size > 0 %>
+      <h1>Children</h1>
+      <ul>
+        <% links.each do |key, value| %>
+          <li>
+            <a href="<%= value %>"><%= key %></a>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </body>
 </html>
