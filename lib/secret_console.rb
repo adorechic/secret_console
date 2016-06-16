@@ -1,5 +1,10 @@
 require "secret_console/version"
+require "sinatra"
 
 module SecretConsole
-  # Your code goes here...
+  class App < Sinatra::Base
+    get '/' do
+      'Hello'
+    end
+  end
 end
