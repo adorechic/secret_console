@@ -12,6 +12,10 @@ module SecretConsole
 
       keys = CredStash.list.map { |k, v| k }
 
+      if keys.include?(path)
+        return erb :show, locals: { value: CredStash.get(path) }
+      end
+
       unless path == ""
         keys = keys.grep(/\A#{path}#{DELIMITER}*/)
       end
