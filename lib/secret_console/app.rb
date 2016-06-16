@@ -22,6 +22,10 @@ module SecretConsole
         keys = keys.grep(/\A#{path}#{DELIMITER}*/)
       end
 
+      if keys.size == 0
+        return erb :new, locals: { path: request.path_info }
+      end
+
       values = {}
       links = {}
 
@@ -30,16 +34,12 @@ module SecretConsole
         child_path = child_path[1..-1] if child_path.start_with?(DELIMITER)
         childs = child_path.split(DELIMITER)
 
-        case childs.size
-        when 0
-          # TODO
-        when 1
+        if childs.size == 1
           link = (request.path_info.split('/') + [childs.first]).join('/')
           values[childs.first] = Record.new(link, CredStash.get(key))
         else
           link = (request.path_info.split('/') + [childs.first]).join('/')
           links[childs.first] = link
-
         end
       end
 
