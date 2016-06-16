@@ -7,6 +7,8 @@ module SecretConsole
 
     set :views, File.expand_path('../views', __FILE__)
 
+    Record = Struct.new(:path, :value)
+
     get '/*' do
       path = params['splat'].first.gsub("/", DELIMITER)
 
@@ -32,9 +34,12 @@ module SecretConsole
         when 0
           # TODO
         when 1
-          values[childs.first] = CredStash.get(key)
+          link = (request.path_info.split('/') + [childs.first]).join('/')
+          values[childs.first] = Record.new(link, CredStash.get(key))
         else
-          links[childs.first] = [path, '/', childs.first].join
+          link = (request.path_info.split('/') + [childs.first]).join('/')
+          links[childs.first] = link
+
         end
       end
 

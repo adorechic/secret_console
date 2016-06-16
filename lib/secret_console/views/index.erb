@@ -7,10 +7,14 @@
           <th>Key</th>
           <th>Value</th>
         </tr>
-        <% values.each do |key, value| %>
+        <% values.each do |key, record| %>
           <tr>
-            <td><%= key %></td>
-            <td><%= value %></td>
+            <td>
+              <a href="<%= record.path %>">
+                <%= key %>
+              </a>
+            </td>
+            <td><%= record.value %></td>
           </tr>
         <% end %>
       </table>
