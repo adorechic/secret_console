@@ -13,7 +13,7 @@ module SecretConsole
       keys = CredStash.list.map { |k, v| k }
 
       if keys.include?(path)
-        return erb :show, locals: { value: CredStash.get(path) }
+        return erb :show, locals: { value: CredStash.get(path), path: request.path_info }
       end
 
       unless path == ""
@@ -39,6 +39,17 @@ module SecretConsole
       end
 
       erb :index, locals: { values: values, links: links }
+    end
+
+    post '/*' do
+      path = params['splat'].first.gsub("/", DELIMITER)
+      value = params['value']
+
+
+      CredStash.put(path, value)
+
+      # TODO Set flash message
+      redirect to(request.path_info)
     end
   end
 end
