@@ -1,11 +1,9 @@
-%html
-  %body
-    %h1 Value
-    %p
-      %form{action: path, method: "post"}
-        %textarea{name: "value", rows: 2, cols: 40}= value
-        %input{type: "submit", value: "Save"}
-    %p
-      %form{action: path, method: "post"}
-        %input{type: "hidden", name: "_method", value: "DELETE"}
-        %input{type: "submit", value: "Delete"}
+%h1 Value
+%p
+  %form{action: path, method: "post"}
+    %textarea{name: "value", rows: 2, cols: 40}= value
+    %input{type: "submit", value: "Save"}
+%p
+  %form{action: path, method: "post"}
+    %input{type: "hidden", name: "_method", value: "DELETE"}
+    %input{type: "submit", value: "Delete"}
