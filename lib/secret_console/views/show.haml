@@ -1,9 +1,8 @@
-%h1 Value
-%p
-  %form{action: path, method: "post"}
-    %textarea{name: "value", rows: 2, cols: 40}= value
-    %input{type: "submit", value: "Save"}
-%p
-  %form{action: path, method: "post"}
-    %input{type: "hidden", name: "_method", value: "DELETE"}
-    %input{type: "submit", value: "Delete"}
+%form{action: path, method: "post"}
+  .form-group
+    %label{for: "value"} Secret
+    %textarea{name: "value", rows: 2, cols: 40, class: 'form-control'}= value
+  %input{type: "submit", value: "Save", class: "btn btn-default"}
+%form{action: path, method: "post"}
+  %input{type: "hidden", name: "_method", value: "DELETE"}
+  %input{type: "submit", value: "Delete", class: "btn btn-danger"}
