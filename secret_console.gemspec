@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
 
   spec.add_dependency "sinatra"
+  spec.add_dependency "haml"
   spec.add_dependency "rcredstash", "~> 0.2.0"
 
   spec.add_development_dependency "bundler", "~> 1.12"

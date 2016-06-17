@@ -1,0 +1,20 @@
+%html
+  %body
+    - if values.size > 0
+      %h1 Values
+      %table
+        %tr
+          %th Key
+          %th Value
+        - values.each do |key, record|
+          %tr
+            %td
+              %a{href: record.path}= key
+            %td= record.value
+
+    - if links.size > 0
+      %h1 Children
+      %ul
+        - links.each do |key, value|
+          %li
+            %a{href: value}= key

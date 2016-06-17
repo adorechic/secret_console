@@ -16,7 +16,7 @@ module SecretConsole
       keys = CredStash.list.map { |k, v| k }
 
       if keys.include?(path)
-        return erb :show, locals: { value: CredStash.get(path), path: request.path_info }
+        return haml :show, locals: { value: CredStash.get(path), path: request.path_info }
       end
 
       unless path == ""
@@ -24,7 +24,7 @@ module SecretConsole
       end
 
       if keys.size == 0
-        return erb :new, locals: { path: request.path_info }
+        return haml :new, locals: { path: request.path_info }
       end
 
       values = {}
@@ -44,7 +44,7 @@ module SecretConsole
         end
       end
 
-      erb :index, locals: { values: values, links: links }
+      haml :index, locals: { values: values, links: links }
     end
 
     post '/*' do
