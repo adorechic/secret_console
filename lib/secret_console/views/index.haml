@@ -11,8 +11,6 @@
         %td= record.value
 
 - if links.size > 0
-  %h1 Children
-  %ul
+  .list-group
     - links.each do |key, value|
-      %li
-        %a{href: value}= key
+      %a{href: value, class: 'list-group-item'}= key
