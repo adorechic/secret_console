@@ -1,14 +1,18 @@
 - if values.size > 0
-  %h1 Values
-  %table
-    %tr
-      %th Key
-      %th Value
-    - values.each do |key, record|
-      %tr
-        %td
-          %a{href: record.path}= key
-        %td= record.value
+  %table.table.table-striped
+    %tbody
+      %thead
+        %tr
+          %th #
+          %th Key
+          %th Value
+      - values.each do |key, record|
+        %tr
+          %td
+            %a{href: record.path, class: 'btn btn-default'}
+              %span{class: "glyphicon glyphicon-pencil", aria_hidden: "true"}
+          %td= key
+          %td= record.value
 
 - if links.size > 0
   .list-group
