@@ -1,8 +1,9 @@
 # SecretConsole
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/secret_console`. To experiment with that code, run `bin/console` for an interactive prompt.
+SecretConsole is a GUI tool for CredStash.
 
-TODO: Delete this and the text above, and describe your gem
+![SecretConsole Top](https://raw.githubusercontent.com/adorechic/secret_console/doc_images/images/secret_console_top.png)
+![SecretConsole Edit](https://raw.githubusercontent.com/adorechic/secret_console/doc_images/images/secret_console_edit.png)
 
 ## Installation
 
@@ -22,7 +23,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ secret_console
+    $ open http://localhost:4567
+
+SecretConsole requires an aws credential such as AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
 
 ## Development
 
@@ -38,4 +42,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
